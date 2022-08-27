@@ -1,0 +1,92 @@
+.happySuccessStoriesSection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f8f8f8;
+    margin-top: 25%;
+    padding-top: 3%;
+}
+
+.happySuccessStories {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #0d1850;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    padding-bottom: 2%;
+    font-weight: bold;
+}
+
+.happySuccessStoriesImage {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10%;
+}
+
+.successImageBlock {
+    position: relative;
+    max-width: 30%;
+    max-height: 70%;
+}
+
+.successImage {
+    object-fit: cover;
+    max-width: 90%;
+    max-height: 48vh;
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+
+.successImageMessage {
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    left: 0;
+    right: 10px;
+    border-radius: 5px;
+    background: #ba0038;
+    display: flex;
+    padding: 30px 10px 10px 10px;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
+
+.successImageBlock:hover .successImageMessage {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .happySuccessStoriesSection {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #f8f8f8;
+        margin-top: 200%;
+        padding-top: 3%;
+    }
+    .happySuccessStoriesImage {
+        display: grid;
+        grid-template-rows: 300px;
+        grid-template-columns: 300px;
+        grid-gap: 10px;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10%;
+        justify-content: center;
+        align-items: center;
+    }
+    .successImageBlock {
+        max-width: 100%;
+        max-height: 50%;
+    }
+}
