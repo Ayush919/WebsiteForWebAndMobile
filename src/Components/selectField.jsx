@@ -14,7 +14,6 @@ const SelectField = ({label, selectField, items, onFieldChange}) => {
                 onChange={onFieldChange}
             >
                 {items.map((item,index) => {
-                    console.log("items",item)
                     return <MenuItem key={index} value={item}>{item}</MenuItem>
                 })}
             </Select>

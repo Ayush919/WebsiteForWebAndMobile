@@ -1,5 +1,5 @@
-import {Facebook} from '@material-ui/icons';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PinterestIcon from '@mui/icons-material/Pinterest';
@@ -68,7 +68,7 @@ const Footer = () => {
                                     <div className="contactAddress">Phone: +91-8303930001 / +91-8303930005</div>
                                     <div>E-Mail: <span className="mailId">Info@Truelymarry.com</span></div>
                                     <div className="contactIcons">
-                                        <div className="iconSocialMedia"><Facebook/></div>
+                                        <div className="iconSocialMedia"><FacebookIcon/></div>
                                         <div className="iconSocialMedia"><TwitterIcon/></div>
                                         <div className="iconSocialMedia"><InstagramIcon/></div>
                                         <div className="iconSocialMedia"><PinterestIcon/></div>

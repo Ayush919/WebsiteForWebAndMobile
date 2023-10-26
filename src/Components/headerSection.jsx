@@ -1,34 +1,61 @@
 import React, {useState} from "react";
-import {Box} from "@material-ui/core";
+import Box from '@mui/material/Box';
 import SelectField from "./selectField";
 import MainSection from "./mainSection";
 import MiddleSection from "./middleSection";
 import HappySuccessStory from "./happySuccessStory";
 import Footer from "./footer";
 import AppContinueButton from "../Common/AppContinueButton";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import {auth, db} from "../Firebase/firebase";
+import {SignInSignUpModal} from "../Common/signInSignUpModal";
 
 const HeaderSection = () => {
     const selectLookingFor = ["Male", "Female"]
     const selectReligion = ["Hindu", "Muslim", "Sikh", "Christian", "Parsi", "Jain"]
     const selectMotherTongue = ["English", "Hindi", "Gujarati"]
-    const [age,setAge] = useState("18")
+    const [age, setAge] = useState("18")
+    const [showForm, setShowForm] = useState(false)
     const ageNumbers = []
-    for (let i=18 ; i<=60; i++){
+    for (let i = 18; i <= 60; i++) {
         ageNumbers.push(i)
     }
-    console.log(ageNumbers)
+
     const [gender, setGender] = useState("Male")
-    const [religion,setReligion] = useState("Hindu")
+    const [religion, setReligion] = useState("Hindu")
     const handleGenderChange = (event) => {
         setGender(event.target.value);
     };
-    const handleReligionChange = (e)=>{
+    const handleReligionChange = (e) => {
         setReligion(e.target.value)
     }
 
-    const handleAgeChange = (e)=>{
+    const handleAgeChange = (e) => {
         setAge(e.target.value)
     }
+
+    const handleRegister = () => {
+        setShowForm(true)
+        console.log("handleRegister")
+        createUserWithEmailAndPassword(auth, "ayushmathur82@gmail.com", "ayushMathur@12")
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                console.log("uesr :::: ", user)
+                // ...
+            }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            console.log("auth :::: ", auth, db)
+            console.log("user Details :::: ", errorMessage, "errorCode", errorCode)
+        });
+    }
+
+    const handleSignIn = () => {
+
+    }
+
     return (
         <>
             <div className="headerSection">
@@ -43,9 +70,9 @@ const HeaderSection = () => {
                         <AppContinueButton className="registerButton"
                                            disableBtn={false}
                                            title="Register" onClick={"confirmOrder"}/>
-
                     </div>
                 </div>
+                {showForm && <SignInSignUpModal showModal={showForm} setShowModal={setShowForm}/>}
                 <Box className="headerBox">
                     <div className="editNumberCrossIcon">
                         <div className="selectBoxSection">
@@ -88,6 +115,14 @@ const HeaderSection = () => {
                             />
                         </div>
                         <button className="searchButton" type={"button"}> SEARCH NOW</button>
+                    </div>
+                    <div className={"buttonSectionWeb"}>
+                        <AppContinueButton className="loginButton"
+                                           disableBtn={false}
+                                           title="Login" onClick={() => handleSignIn}/>
+                        <AppContinueButton className="registerButton"
+                                           disableBtn={false}
+                                           title="Register" onClick={handleRegister}/>
                     </div>
                 </Box>
             </div>

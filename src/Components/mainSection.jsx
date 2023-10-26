@@ -1,4 +1,3 @@
-import {Box} from "@mui/material";
 import DataBox from "../Common/dataBox";
 import viewContact from '../Image/view-contact.png'
 import sendMessage from '../Image/send-message.png';

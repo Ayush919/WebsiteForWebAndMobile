@@ -7,11 +7,11 @@ import '../src/Css/footer.css'
 import HeaderSection from "./Components/headerSection";
 
 function App() {
-  return (
-      <div className="App">
-        <HeaderSection/>
-      </div>
-  );
+    return (
+        <div className="App">
+            <HeaderSection/>
+        </div>
+    );
 }
 
 export default App;
